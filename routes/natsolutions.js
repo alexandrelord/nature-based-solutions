@@ -3,7 +3,10 @@ var router = express.Router();
 // add natsolutions controller module
 var natsolutionsCTRL = require('../controllers/natsolutions')
 
-/* GET natsolutions index (all projects page) */
+/* GET natsolutions index - show all projects page */
 router.get('/', natsolutionsCTRL.index)
+/* GET natsolutions new - show new project page form */
+router.get('/new', natsolutionsCTRL.new)
+
 
 module.exports = router;
