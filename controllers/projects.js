@@ -3,9 +3,10 @@ let Project = require('../models/project')
 
 module.exports = {
     index,
+    show,
     new: newProject,
     create,
-    show
+    update,
 }
 
 // render all projects page
@@ -18,13 +19,13 @@ function index(req, res) {
 function newProject(req, res) {
     res.render('projects/new', { title: 'NUEVO PROYECTO PAGE' })
 }
-
+// render project page
 function show(req, res) {
     Project.findById(req.params.id, function(err, project) {
         res.render('projects/show', { project })
     })
 }
-
+// create new project
 function create(req, res) {
     const project = new Project(req.body)
     console.log(req.body)
@@ -33,5 +34,11 @@ function create(req, res) {
         // should redirect to /projects/show page for that specific project
         // redirect to all projects for now
         res.redirect('/projects')
+    })
+}
+
+function update(req, res) {
+    Project.findById(req.params.id, function(err, project) {
+        res.render('projects/edit', { project })
     })
 }

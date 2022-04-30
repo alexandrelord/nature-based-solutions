@@ -9,6 +9,8 @@ router.get('/', projectsCtrl.index)
 router.get('/new', projectsCtrl.new)
 /* GET projects/:id - show project page */
 router.get('/:id', projectsCtrl.show)
+/* GET projects/:id/edit - show edit page */
+router.get('/:id/edit', projectsCtrl.update)
 /* POST /projects */
 router.post('/', projectsCtrl.create)
 
