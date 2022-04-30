@@ -4,13 +4,13 @@ const Schema = mongoose.Schema
 
 // const userSchema
 
-const companiesSchema = new Schema({
-  name: String,
-  url: String,
-  role: String
-}, {
-  timestamp: true,
-})
+// const companiesSchema = new Schema({
+//   name: String,
+//   url: String,
+//   role: String
+// }, {
+//   timestamp: true,
+// })
 
 const projectsSchema = new Schema({
   name: {
@@ -30,7 +30,7 @@ const projectsSchema = new Schema({
     required: true
   },
   duration: {
-    type: Date,
+    type: String,
     required: true
   },
   implementedBy: {

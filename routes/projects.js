@@ -7,6 +7,8 @@ var projectsCtrl = require('../controllers/projects')
 router.get('/', projectsCtrl.index)
 /* GET projects/new - show new project page form */
 router.get('/new', projectsCtrl.new)
+/* GET projects/:id - show project page */
+router.get('/:id', projectsCtrl.show)
 /* POST /projects */
 router.post('/', projectsCtrl.create)
 

@@ -1,5 +1,9 @@
 <%- include('../partials/header') %> 
     
 <!-- MAIN -->
+<% projects.forEach(project => { %>
+    <p> <%= project.name %></p>
+    <a href="/projects/<%= project.id %>">Detalle</a>
+<% }); %>
 
 <%- include('../partials/footer') %> 
