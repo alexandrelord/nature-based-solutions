@@ -15,7 +15,7 @@ require('./config/passport')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var natsolutionsRouter = require('./routes/natsolutions')
+var projectsRouter = require('./routes/projects')
 
 var app = express();
 
@@ -36,10 +36,15 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+// add req.user to all templates
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/natsolutions', natsolutionsRouter)
+app.use('/projects', projectsRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

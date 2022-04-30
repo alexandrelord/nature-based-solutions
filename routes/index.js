@@ -1,23 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var userCtrl = require('../controllers/users')
-
+var usersCtrl = require('../controllers/users')
 const passport = require('passport');
 
 /* GET home page. */
-router.get('/', userCtrl.index);
+router.get('/', usersCtrl.index);
 
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
   'google',
-  { scope: ['profile', 'email'] } // add more scope?
+  { scope: ['profile', 'email'] }
 ));
 
 // Google OAuth callback route
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    // make sure to refactor 
     successRedirect : '/',
     failureRedirect : '/'
   }
