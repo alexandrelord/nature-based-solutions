@@ -17,18 +17,30 @@ const projectsSchema = new Schema({
     type: String,
     required: true
   },
-  location: [{
-    region: String,
-    city: String,
-    latitude: String,
-    longitude: String
-  }],
-  objective: String,
-  budget: Number,
-  st_date: Date,
-  author: String,
-  companies: [companiesSchema] // array of objects
-
+  city: {
+    type: String,
+    required: true
+  },
+  objective: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  duration: {
+    type: Date,
+    required: true
+  },
+  implementedBy: {
+    type: String,
+    required: true
+  },
+  status: {
+    type: String,
+    required: true
+  },
 
 }, {
   timestamp: true
