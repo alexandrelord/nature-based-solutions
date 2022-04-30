@@ -7,6 +7,9 @@ var natsolutionsCTRL = require('../controllers/natsolutions')
 router.get('/', natsolutionsCTRL.index)
 /* GET natsolutions new - show new project page form */
 router.get('/new', natsolutionsCTRL.new)
+/* POST /natsolutions */
+router.post('/', natsolutionsCTRL.create)
+
 
 
 module.exports = router;

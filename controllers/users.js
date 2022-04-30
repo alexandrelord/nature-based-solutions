@@ -1,15 +1,11 @@
-let User = require('../controllers/users')
+let User = require('../models/user')
 
 module.exports = {
     index,
 }
 
-
 function index(req, res, next) {
     console.log(req.user)
-      // Passing search values, name & sortKey, for use in the EJS
-      res.render('index', 
-      { 
-        user: req.user
-      });
+      res.render('index', { user: req.user });
  }
+
