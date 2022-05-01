@@ -3,8 +3,6 @@ const mongoose = require('mongoose')
 // shortcut to mongoose.Schema class
 const Schema = mongoose.Schema
 
-// const userSchema
-
 const usersSchema = new Schema({
   name: String,
   email: String,

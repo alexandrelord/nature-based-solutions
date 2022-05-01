@@ -1,5 +1,6 @@
 <%- include('../partials/header') %> 
 
+<!-- Main -->
 <section id="show-page">
     <div>Nombre</div>
     <div><%= project.name %></div>
@@ -15,7 +16,11 @@
     <div><%= project.implementedBy %></div>
     <div>Estado</div>
     <div><%= project.status %></div>
+    <div>Autor</div>
+    <div><%= project.author %></div>
 </section>
-<a href="/projects/<%= project.id %>/edit">Editar proyecto</a>
+
+    <a href="/projects/<%= project.id %>/edit">Editar proyecto</a>
+
 
 <%- include('../partials/footer') %> 

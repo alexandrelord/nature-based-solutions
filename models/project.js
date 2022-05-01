@@ -41,6 +41,9 @@ const projectsSchema = new Schema({
     type: String,
     required: true
   },
+  author: {
+    type: [{type: Schema.Types.ObjectId, ref: 'User'}]
+  },
 
 }, {
   timestamp: true

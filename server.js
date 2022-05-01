@@ -11,8 +11,6 @@ require('./config/database')
 // load in passport config
 require('./config/passport')
 
-
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var projectsRouter = require('./routes/projects')

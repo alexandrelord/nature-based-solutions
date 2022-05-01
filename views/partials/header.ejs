@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google Icon Fonts used by Materialize -->
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <!-- Materialize CSS Framework -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link rel="stylesheet" href="stylesheets/style.css" />
-    <!-- JavaScript for Materialize -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- WTF link now works for all?? -->
+    <link rel="stylesheet" href="../../stylesheets/style.css" />
   </head>
   <header>
-    <nav class="bg-green-600">
-      <a class="px-5" href="/projects">PROYECTOS</a>
-      <a class="px-5" href="/projects/new">AGREGAR PROYECTO</a>
-
-      <ul class="right inline-flex">
-        <li>
-           <% if (user) { %> 
-          <a href="/logout"
-            ><i class="material-icons left">trending_flat</i>Log Out</a
-          >
+    <nav
+      class="flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-green-500 sm:items-baseline w-full"
+    >
+      <div class="mb-2 sm:mb-0">
+        <a
+          href="/"
+          class="text-2xl no-underline text-grey-darkest hover:text-blue-dark"
+          >Inicio</a
+        >
+      </div>
+      <div>
+        <a
+          href="/projects"
+          class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2"
+          >Proyectos</a
+        >
+        <a
+          href="/projects/new"
+          class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2"
+          >Agregar Proyecto</a
+        >
+      </div>
+      <div>
+          <% if (user) { %>
+          <a href="/logout">Log Out</a>
           <% } else { %>
-          <a href="/auth/google"
-            ><i class="material-icons left">vpn_key</i>Login con Google</a
-          >
+          <a href="/auth/google">Iniciar Sesión</a>
           <% } %>
-        </li>
-      </ul>
+      </div>
     </nav>
   </header>
   <body>
