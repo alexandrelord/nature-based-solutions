@@ -1,6 +1,35 @@
 <%- include('../partials/header') %> 
 
-<!-- Main -->
+<style>
+  #map {
+    height: 40vh;
+  }
+</style>
+
+
+
+
+<!-- Leaflet Map -->
+<div id="map"></div>
+
+    <script>
+      const map = L.map('map').setView([4.5709, -74.2973], 5);
+      const attribution =
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+        const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+        const tiles = L.tileLayer(tileUrl, { attribution });
+        tiles.addTo(map);
+
+        let marker = L.marker([7.8828, -76.6247]).addTo(map)
+
+    </script>
+
+
+
+
+<!--  Project Cards -->
+
 <section class="text-gray-600 body-font">
     <div class="container px-5 py-24 mx-auto">
       <div class="flex flex-wrap -m-4">
