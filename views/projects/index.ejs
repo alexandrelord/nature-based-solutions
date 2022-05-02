@@ -3,7 +3,7 @@
 <!-- Leaflet Map -->
 
 
-  <div class="h-[60vh] top-0 left-0 -z-50" id="map"></div>
+  <div class="h-[60vh] top-0 left-0" id="map"></div>
 
 
 
@@ -29,11 +29,12 @@
                       <a href="/projects/<%= project.id %>" 
                         class="bg-amber-500 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg">Learn more
                       </a>
-                    
                   </div>
                 </div>
               </div>
             </div>
+            <input type="hidden" class="lat" value="<%= project.lat %>">
+            <input type="hidden" class="lon" value="<%= project.lon %>">
         <% }) %>     
       </div>
     </div>
@@ -50,6 +51,12 @@
       const tiles = L.tileLayer(tileUrl, { attribution });
       tiles.addTo(map);
 
-      // let marker = L.marker([7.8828, -76.6247]).addTo(map)
+    let latEl = document.querySelectorAll('.lat')
+    let lonEl = document.querySelectorAll('.lon')
 
+    if (latEl.length) {
+      for (let i = 0; i < latEl.length; i++) {
+        let marker = L.marker([latEl[i].value, lonEl[0].value]).addTo(map)
+      }
+    }
   </script>

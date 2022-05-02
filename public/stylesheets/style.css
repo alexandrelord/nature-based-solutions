@@ -973,3 +973,11 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 60%;
   }
 }
+
+.image {
+  background-image: url('https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/magdalena01.jpg?crop=0,0,4000,2200&amp;wid=4000&amp;hei=2200&amp;scl=1.0');
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

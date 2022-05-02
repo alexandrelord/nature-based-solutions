@@ -21,6 +21,12 @@ const projectsSchema = new Schema({
     type: String,
     required: true
   },
+  lat: {
+    type: Number,
+  },
+  lon: {
+    type: Number,
+  },
   objective: {
     type: String,
     required: true
