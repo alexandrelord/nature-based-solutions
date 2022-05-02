@@ -1,5 +1,4 @@
 let Project = require("../models/project");
-// let User = require('../models/user')
 let nodeGeocoder = require('node-geocoder');
 const Geocoder = require("node-geocoder/lib/geocoder");
 
@@ -32,8 +31,7 @@ function show(req, res) {
 function create(req, res) {
   let geoCoder = nodeGeocoder({ provider: 'openstreetmap' });
   geoCoder.geocode({city: req.body.city, country: 'Colombia', limit: 1})
-  .then((res)=> {
-    console.log(res)
+  .then((res) => {
     req.body.lat = res[0].latitude;
     req.body.lon = res[0].longitude;
   })
