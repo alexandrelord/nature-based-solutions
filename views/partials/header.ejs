@@ -13,35 +13,36 @@
     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
     integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
     crossorigin=""></script>
+
   </head>
   <header>
     <nav
-      class="flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-green-500 sm:items-baseline w-full"
+      class="flex flex-col text-center text-green-100 sm:flex-row sm:text-left sm:justify-between py-4 px-6 sm:items-baseline w-full"
     >
       <div class="mb-2 sm:mb-0">
         <a
           href="/"
-          class="text-2xl no-underline text-grey-darkest hover:text-blue-dark"
+          class="text-xl no-underline"
           >Inicio</a
         >
       </div>
-      <div>
+      <div class="flex justify-center space-x-20">
         <a
           href="/projects"
-          class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2"
+          class="text-xl no-underline"
           >Proyectos</a
         >
         <a
           href="/projects/new"
-          class="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2"
+          class="text-xl no-underline"
           >Agregar Proyecto</a
         >
       </div>
       <div>
           <% if (user) { %>
-          <a href="/logout">Log Out</a>
+          <a href="/logout" class="text-xl">Log Out</a>
           <% } else { %>
-          <a href="/auth/google">Iniciar Sesión</a>
+          <a href="/auth/google" class="text-xl">Iniciar Sesión</a>
           <% } %>
       </div>
     </nav>

@@ -39,6 +39,7 @@ const projectsSchema = new Schema({
   },
   status: {
     type: String,
+    enum: ['No Ejecutado', 'Ejecutado'],
     required: true
   },
   author: {

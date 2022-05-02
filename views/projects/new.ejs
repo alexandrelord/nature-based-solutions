@@ -1,34 +1,101 @@
 <%- include('../partials/header') %>
-    
-<!-- MAIN -->
-<!-- Make sure to add name="value" to connect it w/ the DB schema/model -->
-    <% if (user) { %>
-       <form action="/projects" method="POST" autocomplete="off">
-           <label>Nombre del Proyecto
-               <input type="text" name="name">
-           </label><br>
-           <label>Ciudad
-               <input type="text" name="city">
-           </label><br>
-           <label>Enfoque
-               <input type="text" name="objective">
-           </label><br>
-           <label>Descripción
-               <input type="text" name="description">
-           </label><br>
-           <label>Duración
-               <input type="text" name="duration">
-           </label><br>
-           <label>Líder del Proyecto
-               <input type="text" name="implementedBy">
-           </label><br>
-           <label>Estado
-            <input type="text" name="status">    
-           </label><br>
-            <button type="submit">Agregar</button>
-       </form>
-    <% } else { %>
-        <h1>Por favor ingresa para agregar un proyecto</h1>
-    <% } %>
 
-<%- include('../partials/footer') %> 
+<!-- Main -->
+
+<% if (user) { %>
+<div class="h-screen flex justify-center items-center">
+  <div class="lg:w-3/5 md:w-1/2 w-2/3">
+    <form
+      action="/projects"
+      method="POST"
+      autocomplete="off"
+      class="bg-green-600 p-10 rounded-lg shadow-lg min-w-full"
+    >
+      <h1 class="text-center text-2xl mb-6 font-bold">Nuevo Proyecto</h1>
+      <div>
+        <label class="text-black font-semibold block my-3">Nombre:</label>
+        <input
+          class="w-full px-4 py-2 rounded-lg focus:outline-none"
+          type="text"
+          name="name"
+          placeholder="Nombre"
+        />
+      </div>
+      <div>
+        <label class="text-black font-semibold block my-3">Ciudad:</label>
+        <input
+          class="w-full px-4 py-2 rounded-lg focus:outline-none"
+          type="text"
+          name="city"
+          placeholder="Ciudad"
+        />
+      </div>
+      <div>
+        <label class="text-black font-semibold block my-3">Enfoque:</label>
+        <input
+          class="w-full px-4 py-2 rounded-lg focus:outline-none"
+          type="text"
+          name="objective"
+          placeholder="Enfoque"
+        />
+      </div>
+      <div>
+        <label class="text-black font-semibold block my-3"
+          >Líder del Proyecto:</label
+        >
+        <input
+          class="w-full px-4 py-2 rounded-lg focus:outline-none"
+          type="text"
+          name="implementedBy"
+          placeholder="Líder del Proyecto"
+        />
+      </div>
+      <div>
+        <label class="text-black font-semibold block my-3">Duración:</label>
+        <input
+          class="w-full px-4 py-2 rounded-lg focus:outline-none"
+          type="text"
+          name="duration"
+          placeholder="Duración"
+        />
+      </div>
+      <div>
+        <label class="text-black font-semibold block my-3">Estado:</label>
+        <select class="w-full px-4 py-2 rounded-lg focus:outline-none" name="status">
+            <option class="text-blue" value="" disabled selected hidden>Selectiona el Estado</option>
+            <option value="No Ejecutado">No Ejecutado</option>
+            <option value="Ejecutado">Ejecutado</option>
+        </select>
+        <!-- <input
+          class="w-full px-4 py-2 rounded-lg focus:outline-none"
+          type="text"
+          name="status"
+          placeholder="Estado"
+        /> -->
+      </div>
+
+      <div>
+        <label class="text-black font-semibold block my-3">Descripción:</label>
+        <textarea
+          class="w-full font-serif p-4 outline-none rounded-md"
+          name="description"
+          placeholder="Descripción"
+        ></textarea>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full mt-10 mb-1 bg-orange-500 rounded-lg px-4 py-2 text-lg text-black tracking-wide font-semibold"
+      >
+        Agregar
+      </button>
+    </form>
+  </div>
+</div>
+<% } else { %>
+<h1 class="text-center py-5">Por favor ingresa para agregar un proyecto</h1>
+<% } %>
+
+<script></script>
+
+<%- include('../partials/footer') %>
