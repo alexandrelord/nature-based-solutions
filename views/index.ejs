@@ -1,4 +1,45 @@
-<%- include('./partials/header') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../stylesheets/style.css" />
+  </head>
+  <header>
+    <nav
+      class="absolute flex flex-col text-center text-green-100 sm:flex-row sm:text-left sm:justify-between py-4 px-6 sm:items-baseline w-full"
+    >
+      <div class="mb-2 sm:mb-0">
+        <a
+          href="/"
+          class="text-xl no-underline"
+          >Inicio</a
+        >
+      </div>
+      <div class="flex justify-center space-x-20">
+        <a
+          href="/projects"
+          class="text-xl no-underline"
+          >Proyectos</a
+        >
+        <a
+          href="/projects/new"
+          class="text-xl no-underline"
+          >Agregar Proyecto</a
+        >
+      </div>
+      <div>
+          <% if (user) { %>
+          <a href="/logout" class="text-xl">Log Out</a>
+          <% } else { %>
+          <a href="/auth/google" class="text-xl">Iniciar Sesión</a>
+          <% } %>
+      </div>
+    </nav>
+  </header>
+  <body>
 
 <!-- MAIN -->
 

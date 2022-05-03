@@ -1,7 +1,79 @@
-<%- include('../partials/header') %> 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../stylesheets/style.css" />
+    <!-- Leaflet Map CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+  </head>
+  <header>
+      <nav
+      class="flex flex-col text-center text-green-200 bg-[#012030] sm:flex-row sm:text-left sm:justify-between py-4 px-6 sm:items-baseline w-full"
+      >
+      <div class="mb-2 sm:mb-0">
+        <a
+          href="/"
+          class="text-xl no-underline"
+          >Inicio</a
+        >
+      </div>
+      <div class="flex justify-center space-x-20">
+        <a
+          href="/projects"
+          class="text-xl no-underline"
+          >Proyectos</a
+        >
+        <a
+          href="/projects/new"
+          class="text-xl no-underline"
+          >Agregar Proyecto</a
+        >
+      </div>
+      <div>
+          <% if (user) { %>
+          <a href="/logout" class="text-xl">Log Out</a>
+          <% } else { %>
+          <a href="/auth/google" class="text-xl">Iniciar Sesión</a>
+          <% } %>
+      </div>
+    </nav>
+  </header>
+  <body>
 
 <!-- Main -->
-<section id="show-page">
+
+<!-- image container -->
+
+<div class="show-img"></div>
+
+<!-- info section -->
+
+<div class="grid grid-rows-2 grid-cols-2 h-[54vh]">
+    <aside class="row-start-2 col-start-1">
+
+    </aside>
+
+</div>
+
+<!-- <aside class="">
+    <div class="h-[680px]" id="map"></div>
+</aside> -->
+
+
+
+
+<!-- <section id="show-page">
+    <label> Actualizadó el
+        <%= project.updatedAt.toLocaleDateString('en-GB', {hour: '2-digit', minute:'2-digit'}) %>
+    </label>
     <div>Nombre</div>
     <div><%= project.name %></div>
     <div>Ciudad</div>
@@ -16,11 +88,28 @@
     <div><%= project.implementedBy %></div>
     <div>Estado</div>
     <div><%= project.status %></div>
-    <div>Autor</div>
-    <div><%= project.author %></div>
 </section>
 
-    <a href="/projects/<%= project.id %>/edit">Editar proyecto</a>
+    <a href="/projects/<%= project.id %>/edit">Editar proyecto</a> -->
 
 
 <%- include('../partials/footer') %> 
+
+<script>
+    const map = L.map('map').setView([4.5709, -74.2973], 5);
+    const attribution =
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+
+      const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+      const tiles = L.tileLayer(tileUrl, { attribution });
+      tiles.addTo(map);
+
+    // let latEl = document.querySelectorAll('.lat')
+    // let lonEl = document.querySelectorAll('.lon')
+
+    // if (latEl.length) {
+    //   for (let i = 0; i < latEl.length; i++) {
+    //     let marker = L.marker([latEl[i].value, lonEl[i].value]).addTo(map)
+    //   }
+    // }
+  </script>

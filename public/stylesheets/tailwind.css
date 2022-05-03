@@ -11,4 +11,12 @@
     height: 100vh;
   }
 
+.show-img {
+  background-image: url('../images/FLOODING_1442.JPEG');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 40vh;
+}
+
   /* form divs */

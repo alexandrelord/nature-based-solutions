@@ -43,7 +43,7 @@ const projectsSchema = new Schema({
   },
 
 }, {
-  timestamp: true
+  timestamps: true,
 })
 
 // compile the schema into a model and export

@@ -8,7 +8,7 @@ const usersSchema = new Schema({
   email: String,
   googleId: String,
 }, {
-    timestamp: true
+    timestamps: true
 })
 
 // compile the schema into a model and export
