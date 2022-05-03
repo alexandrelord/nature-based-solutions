@@ -19,7 +19,10 @@ router.get('/oauth2callback', passport.authenticate(
     successRedirect : '/',
     failureRedirect : '/'
   }
-));
+), function(req, res) {
+  console.log('hello')
+  res.redirect('/~' + req.user.username);
+});
 
 // OAuth logout route
 router.get('/logout', function(req, res){
