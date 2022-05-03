@@ -2,16 +2,6 @@ const mongoose = require('mongoose')
 // shortcut to mongoose.Schema class
 const Schema = mongoose.Schema
 
-// const userSchema
-
-// const companiesSchema = new Schema({
-//   name: String,
-//   url: String,
-//   role: String
-// }, {
-//   timestamp: true,
-// })
-
 const projectsSchema = new Schema({
   name: {
     type: String,

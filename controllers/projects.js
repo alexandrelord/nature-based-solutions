@@ -32,6 +32,7 @@ function create(req, res) {
   let geoCoder = nodeGeocoder({ provider: 'openstreetmap' });
   geoCoder.geocode({city: req.body.city, country: 'Colombia', limit: 1})
   .then((res) => {
+    console.log(req.body)
     req.body.lat = res[0].latitude;
     req.body.lon = res[0].longitude;
   })
