@@ -1,13 +1,16 @@
 let Project = require("../models/project");
 let nodeGeocoder = require('node-geocoder');
 const Geocoder = require("node-geocoder/lib/geocoder");
+const project = require("../models/project");
 
 module.exports = {
   index,
   show,
   new: newProject,
   create,
-  edit
+  edit,
+  update,
+  delete: deleteProject
 };
 
 // render all projects page
@@ -32,7 +35,6 @@ function create(req, res) {
   let geoCoder = nodeGeocoder({ provider: 'openstreetmap' });
   geoCoder.geocode({city: req.body.city, country: 'Colombia', limit: 1})
   .then((res) => {
-    console.log(req.body)
     req.body.lat = res[0].latitude;
     req.body.lon = res[0].longitude;
   })
@@ -50,9 +52,26 @@ function create(req, res) {
     console.log(err);
   });
 }
-// edit project
+// send to edit project page
 function edit(req, res) {
   Project.findById(req.params.id, function (err, project) {
     res.render("projects/edit", { project });
   });
 }
+// update project entry - make sure to check for geocode if city is changed again
+function update(req, res) {
+  Project.findByIdAndUpdate(req.params.id, req.body, function(err, project) {
+    res.redirect(`/projects/${project.id}`)
+  })
+}
+
+function deleteProject(req, res) {
+  Project.findById(req.params.id, function(err, project) {
+    if (err) return res.send(err)
+    if (!req.user._id.equals(project.author)) return res.redirect(`/projects/${project.id}`)
+    project.remove()
+    res.redirect('/projects')
+  })
+}
+
+// req.user is the logged-in user - if not logged-in, req.user is null

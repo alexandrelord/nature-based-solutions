@@ -1,15 +1,67 @@
 <%- include('../partials/header') %> 
 
-<div class="w-screen h-screen bg-[#aac938]"></div>
+<div class="w-screen h-screen">
+<div class="w-full h-full flex flex-col justify-center items-center">
+<form class="w-full max-w-sm" 
+    action="/projects/<%= project.id %>?_method=PUT" 
+    method="POST" 
+    autocomplete="off">
 
-<h1>Edit Page</h1>
-<h1><%=  project.name %></h1>
-<h1><%=  project.city %></h1>
-<h1><%=  project.objective %></h1>
-<h1><%=  project.description %></h1>
-<h1><%=  project.duration %></h1>
-<h1><%=  project.implementedBy %></h1>
-<h1><%=  project.status %></h1>
-<h1><%= project.id %></h1>
+    <div class="flex items-center border-b border-black py-2">
+        <input class="appearance-none bg-transparent border-none w-full 
+              text-black mr-3 py-1 px-2 leading-tight focus:outline-none" 
+              type="text" placeholder="Nombre del Proyecto" value=<%= project.name %>  name="name" required
+        ></div></br>
+    
+        <div class="flex items-center border-b border-black py-2">
+          <input class="appearance-none bg-transparent border-none w-full 
+                    text-black mr-3 py-1 px-2 leading-tight focus:outline-none" 
+                    type="text" placeholder="Ciudad" value=<%= project.city %> name="city" required
+        ></div> </br>
+    
+        <div class="flex items-center border-b border-black py-2">
+          <input class="appearance-none bg-transparent border-none w-full 
+                    text-black mr-3 py-1 px-2 leading-tight focus:outline-none" 
+                    type="text" placeholder="Enfoque" value=<%= project.objective %> name="objective" required
+        ></div> </br>
+        
+        <div class="flex items-center border-b border-black py-2">
+          <input class="appearance-none bg-transparent border-none w-full 
+                    text-black mr-3 py-1 px-2 leading-tight focus:outline-none" 
+                    type="text" placeholder="Líder del Proyecto" value=<%= project.implementedBy %> name="implementedBy" required
+        ></div> </br>
+    
+        <div class="flex items-center border-b border-black py-2">
+          <input class="appearance-none bg-transparent border-none w-full 
+                    text-black mr-3 py-1 px-2 leading-tight focus:outline-none" 
+                    type="text" placeholder="Duración" value=<%= project.duration %> name="duration" required
+        ></div> </br>
+    
+        <div class="flex items-center border-b border-black py-2">
+          <select class=" text-black w-full px-4 py-2 focus:outline-none bg-transparent" name="status" required>
+            <option value="" disabled selected hidden>Selectiona el Estado</option>
+            <option value="No Ejecutado">No Ejecutado</option>
+            <option value="Ejecutado">Ejecutado</option>
+          </select>
+        </div>
+    
+        <div class="flex items-center border-b border-black py-2">
+          <textarea
+              class="w-full p-4 outline-black bg-transparent text-black"
+              name="description"
+              placeholder="Descripción"
+              required
+            > <%= project.description %></textarea>
+        </div>
+        
+        <button
+            type="submit"
+            class="w-full mt-10 mb-1 bg-transparent hover:scale-105 border border-black px-4 py-2 text-lg text-black tracking-wide font-semibold"
+          >Actualizar
+        </button>
+
+</form>
+</div>
+</div>
 
 <%- include('../partials/footer') %> 

@@ -11,6 +11,10 @@ router.get('/new', projectsCtrl.new)
 router.get('/:id', projectsCtrl.show)
 /* GET projects/:id/edit - show edit page */
 router.get('/:id/edit', projectsCtrl.edit)
+/* PUT projects/:id */
+router.put('/:id', projectsCtrl.update) 
+// DELETE projects/:id
+router.delete('/:id', projectsCtrl.delete)
 /* POST /projects */
 router.post('/', projectsCtrl.create)
 

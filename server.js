@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var methodOverride = require('method-override')
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -34,11 +35,12 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-// add req.user to all templates
+// add req.user to templates
 app.use(function(req, res, next) {
   res.locals.user = req.user;
   next();
 });
+app.use(methodOverride('_method'))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

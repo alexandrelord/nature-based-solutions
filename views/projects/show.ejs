@@ -1,52 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../stylesheets/style.css" />
-    <!-- Leaflet Map CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-    crossorigin=""></script>
-  </head>
-  <header>
-      <nav
-      class="flex flex-col text-center text-black sm:flex-row sm:text-left sm:justify-between py-4 px-6 sm:items-baseline w-full"
-      >
-      <div class="mb-2 sm:mb-0">
-        <a
-          href="/"
-          class="text-xl no-underline"
-          >Inicio</a
-        >
-      </div>
-      <div class="flex justify-center space-x-20">
-        <a
-          href="/projects"
-          class="text-xl no-underline"
-          >Proyectos</a
-        >
-        <a
-          href="/projects/new"
-          class="text-xl no-underline"
-          >Agregar Proyecto</a
-        >
-      </div>
-      <div>
-          <% if (user) { %>
-          <a href="/logout" class="text-xl">Log Out</a>
-          <% } else { %>
-          <a href="/auth/google" class="text-xl">Iniciar Sesión</a>
-          <% } %>
-      </div>
-    </nav>
-  </header>
-  <body class="bg-[#fffaed]">
+<%- include('../partials/header') %> 
 
 <!-- Main -->
 
@@ -90,18 +42,27 @@
             <p class="float-left">Estado:</p>
             <p class="float-right"><%= project.status %></p>
           </div>
-          <% if (user) { %>
-          <% if(project.author.toString() === user._id.toString()) { %>
-          <% console.log('author', project.author.toString()) %>
-          <% console.log('user', user._id.toString()) %>
-          <%# console.log('project model', project) %>
+          
+          <%# if (user) { %>
+          <%# if(project.author.toString() === user._id.toString()) { %>
+          <%# if(user._id.equals(project.author)) { %>
 
-          <div class="text-center">
-          <a href="/projects/<%= project.id %>" 
-            class="bg-amber-500 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg">Editar
-          </a>
+
+        <div class="text-center">
+        <a
+          href="/projects/<%= project.id %>/edit"
+          class="bg-amber-500 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg">Editar
+        </a>
       </div>
-    <% }} %>
+      <div class="text-center mt-2">
+        <form action="/projects/<%= project.id %>?_method=DELETE" method="POST">
+          <button
+            type="submit"
+            class="bg-amber-500 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg">Delete
+        </button>
+        </form>
+      </div>
+    <%# }} %>
         
       </section>
 </div>
