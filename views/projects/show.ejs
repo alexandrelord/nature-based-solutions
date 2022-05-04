@@ -12,7 +12,7 @@
   <section class="col-start-2 col-span-2 text-center mr-10">
     <div class="" id="title">
       <h1 class="text-4xl text-black mb-10"><%= project.name %></h1>
-      <p class="text-xl text-black text-justify"><%= project.description %></p>
+      <p class=" text-black text-justify"><%= project.description %></p>
       <p class="text-left mt-5"><%= `Actualizado el ${project.updatedAt.toLocaleDateString('es-ES')}` %></p>
     </div>
   </section>
@@ -48,17 +48,17 @@
           <% if(user._id.equals(project.author)) { %>
 
 
-        <div class="text-center">
+        <div class="text-right">
         <a
           href="/projects/<%= project.id %>/edit"
-          class="bg-amber-500 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg">Editar
+          class="bg-amber-500 drop-shadow-md px-4 py-1 rounded-lg">Editar
         </a>
       </div>
-      <div class="text-center mt-2">
+      <div class="text-right mt-2">
         <form action="/projects/<%= project.id %>?_method=DELETE" method="POST">
           <button
             type="submit"
-            class="bg-amber-500 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg">Delete
+            class="bg-amber-500 drop-shadow-md px-4 py-1 rounded-lg">Borrar
         </button>
         </form>
       </div>

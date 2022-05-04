@@ -3,7 +3,7 @@
 <!-- Main -->
 
 <!-- main container -->
-<div class="w-screen h-screen bg-[#012030]">
+<div class="w-screen h-screen">
 
   <% if (user) { %>
   <div class="w-full h-full flex flex-col justify-center items-center">
@@ -11,47 +11,47 @@
       action="/projects"
       method="POST"
       autocomplete="off">
-  <div class="flex items-center border-b border-green-200 py-2">
+  <div class="flex items-center border-b border-black py-2">
     <input class="appearance-none bg-transparent border-none w-full 
-          text-green-200 mr-3 py-1 px-2 leading-tight focus:outline-none" 
+          text-black mr-3 py-1 px-2 leading-tight focus:outline-none" 
           type="text" placeholder="Nombre del Proyecto" name="name" required
     ></div></br>
 
-    <div class="flex items-center border-b border-green-200 py-2">
+    <div class="flex items-center border-b border-black py-2">
       <input class="appearance-none bg-transparent border-none w-full 
-                text-green-200 mr-3 py-1 px-2 leading-tight focus:outline-none" 
+                text-black mr-3 py-1 px-2 leading-tight focus:outline-none" 
                 type="text" placeholder="Ciudad" name="city" required
     ></div> </br>
 
-    <div class="flex items-center border-b border-green-200 py-2">
+    <div class="flex items-center border-b border-black py-2">
       <input class="appearance-none bg-transparent border-none w-full 
-                text-green-200 mr-3 py-1 px-2 leading-tight focus:outline-none" 
+                text-black mr-3 py-1 px-2 leading-tight focus:outline-none" 
                 type="text" placeholder="Enfoque" name="objective" required
     ></div> </br>
     
-    <div class="flex items-center border-b border-green-200 py-2">
+    <div class="flex items-center border-b border-black py-2">
       <input class="appearance-none bg-transparent border-none w-full 
-                text-green-200 mr-3 py-1 px-2 leading-tight focus:outline-none" 
+                text-black mr-3 py-1 px-2 leading-tight focus:outline-none" 
                 type="text" placeholder="Líder del Proyecto" name="implementedBy" required
     ></div> </br>
 
-    <div class="flex items-center border-b border-green-200 py-2">
+    <div class="flex items-center border-b border-black py-2">
       <input class="appearance-none bg-transparent border-none w-full 
-                text-green-200 mr-3 py-1 px-2 leading-tight focus:outline-none" 
+                text-black mr-3 py-1 px-2 leading-tight focus:outline-none" 
                 type="text" placeholder="Duración" name="duration" required
     ></div> </br>
 
-    <div class="flex items-center border-b border-green-200 py-2">
-      <select class=" text-green-200 w-full px-4 py-2 focus:outline-none bg-transparent" name="status" required>
+    <div class="flex items-center border-b border-black py-2">
+      <select class=" text-black w-full px-4 py-2 focus:outline-none bg-transparent" name="status" required>
         <option value="" disabled selected hidden>Selectiona el Estado</option>
         <option value="No Ejecutado">No Ejecutado</option>
         <option value="Ejecutado">Ejecutado</option>
       </select>
     </div>
 
-    <div class="flex items-center border-b border-green-200 py-2">
+    <div class="flex items-center border-b border-black py-2">
       <textarea
-          class="w-full p-4 outline-green-200 bg-transparent text-green-200"
+          class="w-full p-4 outline-blacktext-black bg-transparent text-black"
           name="description"
           placeholder="Descripción"
           required
@@ -62,7 +62,7 @@
     
     <button
         type="submit"
-        class="w-full mt-10 mb-1 bg-transparent hover:scale-105 border border-green-200 px-4 py-2 text-lg text-green-200 tracking-wide font-semibold"
+        class="w-full mt-10 mb-1 drop-shadow-md bg-transparent hover:scale-105 bg-amber-500 px-4 py-2 text-lg text-black tracking-wide rounded-lg"
       >
         Agregar
       </button>
@@ -71,7 +71,7 @@
   </div>
   <% } else { %>
     <div class="w-full h-full flex flex-col justify-center items-center">
-      <h1 class="text-6xl font-semibold text-green-200 mb-2">Por favor ingresa</h1>
+      <h1 class="text-6xl font-semibold text-black mb-2">Por favor ingresa</h1>
     </div>
     <% } %>
   </div>
