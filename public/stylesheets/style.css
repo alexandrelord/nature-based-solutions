@@ -558,6 +558,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-row-end: 2;
 }
 
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
 .-m-4 {
   margin: -1rem;
 }
@@ -625,6 +633,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mb-10 {
   margin-bottom: 2.5rem;
+}
+
+.mt-5 {
+  margin-top: 1.25rem;
 }
 
 .flex {
@@ -966,6 +978,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pr-36 {
   padding-right: 9rem;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .text-center {

@@ -54,32 +54,44 @@
 
 <div class="show-img shadow-md"></div>
 
-
+<!-- main info div -->
 <div class="grid grid-cols-5 h-[40vh] mt-10">
   <!-- title and description section -->
   <section class="col-start-2 col-span-2 text-center mr-10">
     <div class="" id="title">
       <h1 class="text-4xl text-black mb-10"><%= project.name %></h1>
       <p class="text-xl text-black text-justify"><%= project.description %></p>
+      <p class="text-left mt-5"><%= `Actualizado el ${project.updatedAt.toLocaleDateString('es-ES')}` %></p>
     </div>
-    
-  
   </section>
 
-  
-  <aside class="col-start-4 h-[40vh] rounded-xl text-black">
+  <!-- map and info section -->
+  <section class="col-start-4 h-[40vh] rounded-xl text-black">
     <div class=" h-full rounded-xl">
     <div class="lg:h-48 md:h-36 w-full rounded-xl" id="map"></div>
         <div class="flex flex-col justify-center p-4"> 
-          <h2><%= `Ciudad:  ${project.city.charAt(0).toUpperCase()}${project.city.slice(1)}` %></h2>
-          <h2><%= `Enfoque:  ${project.objective}` %></h2>
-          <h2><%= `Duración:  ${project.duration}` %></h2>
-          <h2><%= `Líder del Proyecto:  ${project.implementedBy}` %></h2>
-          <h2><%= `Estado:  ${project.status}` %></h2>
+          <div class="mb-2">
+            <p class="float-left">Ciudad:</p>
+            <p class="float-right"><%= `${project.city.charAt(0).toUpperCase()}${project.city.slice(1)}` %></p>
+          </div>
+          <div class="mb-2">
+            <p class="float-left">Enfoque:</p>
+            <p class="float-right"><%= project.objective %></p>
+          </div>
+          <div class="mb-2">
+            <p class="float-left">Duración:</p>
+            <p class="float-right"><%= project.duration %></p>
+          </div>
+          <div class="mb-2">
+            <p class="float-left">Líder del Proyecto:</p>
+            <p class="float-right"><%= project.implementedBy %></p>
+          </div>
+          <div class="mb-2">
+            <p class="float-left">Estado:</p>
+            <p class="float-right"><%= project.status %></p>
+          </div>
         </div>    
-    </aside>
-
-
+      </section>
 </div>
 
 <input type="hidden" class="lat" value="<%= project.lat %>">
