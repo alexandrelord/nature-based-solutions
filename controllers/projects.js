@@ -40,9 +40,9 @@ function create(req, res) {
   })
   .then(() => {
     const project = new Project(req.body);
-    project.save(function (err, testing) {
+    project.save(function (err, prj) {
       if (err) return res.render("projects/new");
-      console.log(testing);
+      console.log(prj);
       // should redirect to /projects/show page for that specific project
       // redirect to all projects for now
       res.redirect("/projects");
@@ -58,11 +58,20 @@ function edit(req, res) {
     res.render("projects/edit", { project });
   });
 }
-// update project entry - make sure to check for geocode if city is changed again
+
 function update(req, res) {
-  Project.findByIdAndUpdate(req.params.id, req.body, function(err, project) {
-    res.redirect(`/projects/${project.id}`)
+  let geoCoder = nodeGeocoder({ provider: 'openstreetmap'})
+  geoCoder.geocode({city: req.body.city, country: 'Colombia', limit: 1})
+  .then((res) => {
+    req.body.lat = res[0].latitude
+    req.body.lon = res[0].longitude
   })
+  .then(() => {
+    Project.findByIdAndUpdate(req.params.id, req.body, function(err, project) {
+      res.redirect(`/projects/${project.id}`)
+    }) 
+  })
+  
 }
 
 function deleteProject(req, res) {

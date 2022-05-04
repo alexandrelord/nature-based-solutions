@@ -43,9 +43,9 @@
             <p class="float-right"><%= project.status %></p>
           </div>
           
-          <%# if (user) { %>
+          <% if (user) { %>
           <%# if(project.author.toString() === user._id.toString()) { %>
-          <%# if(user._id.equals(project.author)) { %>
+          <% if(user._id.equals(project.author)) { %>
 
 
         <div class="text-center">
@@ -62,7 +62,7 @@
         </button>
         </form>
       </div>
-    <%# }} %>
+    <% }} %>
         
       </section>
 </div>
