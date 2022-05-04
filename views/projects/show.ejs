@@ -16,7 +16,7 @@
   </head>
   <header>
       <nav
-      class="flex flex-col text-center text-green-200 bg-[#012030] sm:flex-row sm:text-left sm:justify-between py-4 px-6 sm:items-baseline w-full"
+      class="flex flex-col text-center text-black sm:flex-row sm:text-left sm:justify-between py-4 px-6 sm:items-baseline w-full"
       >
       <div class="mb-2 sm:mb-0">
         <a
@@ -46,37 +46,36 @@
       </div>
     </nav>
   </header>
-  <body class="bg-green-200">
+  <body class="bg-[#fffaed]">
 
 <!-- Main -->
 
 <!-- image container -->
 
-<div class="show-img mt-px"></div>
+<div class="show-img shadow-md"></div>
 
-<!-- info section -->
 
-<!-- main div -->
-<div class="grid grid-cols-3 h-[54vh] mt-px gap-px">
+<div class="grid grid-cols-5 h-[40vh] mt-10">
+  <!-- title and description section -->
+  <section class="col-start-2 col-span-2 text-center mr-10">
+    <div class="" id="title">
+      <h1 class="text-4xl text-black mb-10"><%= project.name %></h1>
+      <p class="text-xl text-black text-justify"><%= project.description %></p>
+    </div>
+    
   
-  <section class="col-span-2 grid grid-rows-2 bg-[#012030]">
-    <div class="flex items-center justify-center" id="title">
-      <h1 class="text-4xl text-green-200"><%= project.name %></h1>
-    </div>
-    <div id="text-center" id="description">
-      <p class="text-xl text-green-200 p-4"><%= project.description %></p>
-    </div>
   </section>
 
-  <!-- aside div -->
-    <aside class="col-start-3 grid grid-rows-3 gap-y-px text-green-200">
-        <div class="col-span-2 row-span-1" id="map"></div>
-        <div class="col-span-2 row-span-2 flex flex-col justify-center bg-[#012030] p-4 text-right"> 
-          <h2><%= `Ciudad:  ${project.city.charAt(0).toUpperCase()}${project.city.slice(1)}` %></h2></br>
-          <h2><%= `Enfoque:  ${project.objective}` %></h2></br>
-          <h2><%= `Duración:  ${project.duration}` %></h2></br>
-          <h2><%= `Líder del Proyecto:  ${project.implementedBy}` %></h2></br>
-          <h2><%= `Estado:  ${project.status}` %></h2></br>
+  
+  <aside class="col-start-4 h-[40vh] rounded-xl text-black">
+    <div class=" h-full rounded-xl">
+    <div class="lg:h-48 md:h-36 w-full rounded-xl" id="map"></div>
+        <div class="flex flex-col justify-center p-4"> 
+          <h2><%= `Ciudad:  ${project.city.charAt(0).toUpperCase()}${project.city.slice(1)}` %></h2>
+          <h2><%= `Enfoque:  ${project.objective}` %></h2>
+          <h2><%= `Duración:  ${project.duration}` %></h2>
+          <h2><%= `Líder del Proyecto:  ${project.implementedBy}` %></h2>
+          <h2><%= `Estado:  ${project.status}` %></h2>
         </div>    
     </aside>
 
