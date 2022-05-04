@@ -86,11 +86,23 @@
             <p class="float-left">Líder del Proyecto:</p>
             <p class="float-right"><%= project.implementedBy %></p>
           </div>
-          <div class="mb-2">
+          <div class="mb-6">
             <p class="float-left">Estado:</p>
             <p class="float-right"><%= project.status %></p>
           </div>
-        </div>    
+          <% if (user) { %>
+          <% if(project.author.toString() === user._id.toString()) { %>
+          <% console.log('author', project.author.toString()) %>
+          <% console.log('user', user._id.toString()) %>
+          <%# console.log('project model', project) %>
+
+          <div class="text-center">
+          <a href="/projects/<%= project.id %>" 
+            class="bg-amber-500 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg">Editar
+          </a>
+      </div>
+    <% }} %>
+        
       </section>
 </div>
 
