@@ -20,8 +20,8 @@
   <!-- map and info section -->
   <section class="col-start-4 h-[40vh]  text-black">
     <div class=" h-full rounded-xl">
-    <div class="lg:h-48 md:h-36 w-full " id="map"></div>
-        <div class="flex flex-col justify-center p-4"> 
+    <div class="lg:h-48 md:h-36 w-full" id="map"></div>
+        <div class="flex flex-col justify-center p-4 border-2"> 
           <div class="mb-2">
             <p class="float-left">Ciudad:</p>
             <p class="float-right"><%= `${project.city.charAt(0).toUpperCase()}${project.city.slice(1)}` %></p>
@@ -48,20 +48,22 @@
           <% if(user._id.equals(project.author)) { %>
 
 
-        <div class="text-right">
-        <a
+        <div class="">
+        <button class="px-[1rem] py-1 float-right mt-2 border border-black">
+          <a
           href="/projects/<%= project.id %>/edit"
-          class=" px-4 py-1 border border-black">Editar
+          class="">Editar
         </a>
+      </button>
       </div>
-      <div class=" mt-2 border border-black">
+      
         <form action="/projects/<%= project.id %>?_method=DELETE" method="POST">
           <button
             type="submit"
-            class=" px-4 py-1 float-right">Borrar
+            class="px-[0.9rem] py-1 float-right mt-2 border border-black">Borrar
         </button>
         </form>
-      </div>
+  
     <% }} %>
         
       </section>
