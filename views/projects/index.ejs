@@ -1,62 +1,61 @@
-<%- include('../partials/header') %> 
+<%- include('../partials/header') %>
 
 <!-- Leaflet Map -->
 
-
-  <div class="h-[60vh]" id="map"></div>
-
-
+<div class="h-[40vh]" id="map"></div>
 
 <!--  Project Cards -->
 
 <section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
-      <div class="flex flex-wrap -m-4">
-        <% projects.forEach((project, index) => { %>
-             <div class="p-4 md:w-1/3">
-                 <% if (index % 2) { %>
-                    <div class="h-full rounded-xl overflow-hidden ">
-                    <img class="lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100" src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/magdalena01.jpg" alt="project">
-                <% } else { %>
-                    <div class="h-full rounded-xl overflow-hidden ">
-                    <img class="lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100" src="https://media.nomadicmatt.com/colombiaguide.jpg" alt="project"> 
-                <% } %>
-                <div class="p-6">
-                  <h2 class="tracking-widest text-xs title-font font-medium text-black mb-1">CATEGORY-1</h2>
-                  <h1 class="title-font text-lg font-medium text-gray-600 mb-3"><%= project.name %></h1>
-                  <p class="leading-relaxed mb-3"><%= `${project.description.slice(0, 95)}...` %></p>
-                  <div class="flex items-center flex-wrap ">
-                      <a href="/projects/<%= project.id %>" 
-                        class="bg-amber-500 hover:scale-105 drop-shadow-md px-4 py-1 rounded-lg">Learn more
-                      </a>
-                  </div>
-                </div>
+  <div class="container px-5 py-10 mx-auto">
+    <div class="flex flex-wrap">
+      <% projects.forEach((project, index) => { %>
+      <div class="p-4 md:w-1/3">
+        <div class="h-full overflow-hidden">
+          <a href="/projects/<%= project.id %>">
+            <div
+              class="bg-image lg:h-48 md:h-36 w-full object-cover object-center scale-110 transition-all duration-400 hover:scale-100"
+            >
+              <div
+                class="w-full h-full flex flex-col justify-center items-center"
+              >
+                <h1 class="text-2xl font-bold text-green-200 mb-2">
+                  <%= project.name %>
+                </h1>
+                <h2 class="text-lg font-bold text-green-200">
+                  <%= project.objective %>
+                </h2>
               </div>
             </div>
-            <input type="hidden" class="lat" value="<%= project.lat %>">
-            <input type="hidden" class="lon" value="<%= project.lon %>">
-        <% }) %>     
+          </a>
+
+          <div class="p-4"></div>
+        </div>
       </div>
+      <input type="hidden" class="lat" value="<%= project.lat %>" />
+      <input type="hidden" class="lon" value="<%= project.lon %>" />
+      <% }) %>
     </div>
-  </section>
+  </div>
+</section>
 
-<%- include('../partials/footer') %> 
+<%- include('../partials/footer') %>
 
-  <script>
-    const map = L.map('map').setView([4.5709, -74.2973], 5);
-    const attribution =
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+<script>
+  const map = L.map("map").setView([4.5709, -74.2973], 5);
+  const attribution =
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 
-      const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-      const tiles = L.tileLayer(tileUrl, { attribution });
-      tiles.addTo(map);
+  const tileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+  const tiles = L.tileLayer(tileUrl, { attribution });
+  tiles.addTo(map);
 
-    let latEl = document.querySelectorAll('.lat')
-    let lonEl = document.querySelectorAll('.lon')
+  let latEl = document.querySelectorAll(".lat");
+  let lonEl = document.querySelectorAll(".lon");
 
-    if (latEl.length) {
-      for (let i = 0; i < latEl.length; i++) {
-        let marker = L.marker([latEl[i].value, lonEl[i].value]).addTo(map)
-      }
+  if (latEl.length) {
+    for (let i = 0; i < latEl.length; i++) {
+      let marker = L.marker([latEl[i].value, lonEl[i].value]).addTo(map);
     }
-  </script>
+  }
+</script>

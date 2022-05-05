@@ -43,15 +43,15 @@
 
     <div class="flex items-center border-b border-black py-2">
       <select class=" text-black w-full px-4 py-2 focus:outline-none bg-transparent" name="status" required>
-        <option value="" disabled selected hidden>Selectiona el Estado</option>
+        <option value="" disabled selected hidden>Selecciona el Estado</option>
         <option value="No Ejecutado">No Ejecutado</option>
         <option value="Ejecutado">Ejecutado</option>
       </select>
     </div>
 
-    <div class="flex items-center border-b border-black py-2">
+    <div class="flex items-center py-2">
       <textarea
-          class="w-full p-4 outline-blacktext-black bg-transparent text-black"
+          class="w-full p-4 outline-blacktext-black border-b border-black bg-transparent text-black"
           name="description"
           placeholder="Descripción"
           required
@@ -62,7 +62,7 @@
     
     <button
         type="submit"
-        class="w-full mt-10 mb-1 drop-shadow-md bg-transparent hover:scale-105 bg-amber-500 px-4 py-2 text-lg text-black tracking-wide rounded-lg"
+        class="w-full mt-10 mb-1 drop-shadow-md bg-transparent border border-black hover:scale-105 px-4 py-2 text-lg text-black tracking-wide"
       >
         Agregar
       </button>

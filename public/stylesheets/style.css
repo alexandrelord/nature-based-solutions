@@ -538,6 +538,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin: -1rem;
 }
 
+.-m-0 {
+  margin: -0px;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -613,6 +617,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-\[40vh\] {
   height: 40vh;
+}
+
+.h-\[4x0vh\] {
+  height: 4x0vh;
 }
 
 .w-full {
@@ -822,6 +830,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 6rem;
 }
 
+.py-16 {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -866,6 +894,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.text-8xl {
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .font-bold {
