@@ -3,6 +3,7 @@ var router = express.Router();
 var usersCtrl = require('../controllers/users')
 const passport = require('passport');
 
+
 /* GET home page. */
 router.get('/', usersCtrl.index);
 

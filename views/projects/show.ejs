@@ -4,7 +4,8 @@
 
 <!-- image container -->
 
-<div class="show-img"></div>
+<div class="bg-[url('<%= project.pic %>')] bg-center bg-no-repeat bg-cover h-[40vh]">
+</div>
 
 <!-- main info div -->
 <div class="grid grid-cols-5 h-[40vh] mt-10">
@@ -20,8 +21,8 @@
   <!-- map and info section -->
   <section class="col-start-4 h-[40vh]  text-black">
     <div class=" h-full rounded-xl">
-    <div class="lg:h-48 md:h-36 w-full" id="map"></div>
-        <div class="flex flex-col justify-center p-4 border-2"> 
+    <div class="lg:h-48 md:h-36 w-full sticky" id="map"></div>
+        <div class="flex flex-col justify-center p-4"> 
           <div class="mb-2">
             <p class="float-left">Ciudad:</p>
             <p class="float-right"><%= `${project.city.charAt(0).toUpperCase()}${project.city.slice(1)}` %></p>

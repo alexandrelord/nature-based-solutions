@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 // add projects controller module
 var projectsCtrl = require('../controllers/projects')
+// multer
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' })
 
 /* GET projects/index - show all projects page */
 router.get('/', projectsCtrl.index)
@@ -16,7 +19,7 @@ router.put('/:id', projectsCtrl.update)
 // DELETE projects/:id
 router.delete('/:id', projectsCtrl.delete)
 /* POST /projects */
-router.post('/', projectsCtrl.create)
+router.post('/', upload.single('image'), projectsCtrl.create)
 
 
 

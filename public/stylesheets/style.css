@@ -506,6 +506,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: absolute;
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
 .bottom-0 {
   bottom: 0px;
 }
@@ -587,6 +592,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-left: 9rem;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -617,6 +626,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-\[40vh\] {
   height: 40vh;
+}
+
+.h-\[100vh\] {
+  height: 100vh;
 }
 
 .w-full {
@@ -741,6 +754,42 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
+.bg-amber-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(217 119 6 / var(--tw-bg-opacity));
+}
+
+.bg-slate-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity));
+}
+
+.bg-slate-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+}
+
+.bg-\[url\(\'https\:\/\/i\.imgur\.com\/U2sUH5Q\.png\'\)\] {
+  background-image: url('https://i.imgur.com/U2sUH5Q.png');
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
+}
+
+.bg-no-repeat {
+  background-repeat: no-repeat;
 }
 
 .object-cover {
@@ -892,6 +941,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .no-underline {
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
+}
+
+.opacity-30 {
+  opacity: 0.3;
 }
 
 .outline-black {

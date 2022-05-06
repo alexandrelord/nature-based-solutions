@@ -42,6 +42,9 @@ const projectsSchema = new Schema({
     type: Schema.Types.ObjectId, 
     ref: 'User'
   },
+  pic: {
+    type: String,
+  }
 
 }, {
   timestamps: true,

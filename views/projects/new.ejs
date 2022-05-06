@@ -10,7 +10,9 @@
 <form class="w-full max-w-sm"
       action="/projects"
       method="POST"
-      autocomplete="off">
+      autocomplete="off"
+      enctype="multipart/form-data"
+      >
   <div class="flex items-center border-b border-black py-2">
     <input class="appearance-none bg-transparent border-none w-full 
           text-black mr-3 py-1 px-2 leading-tight focus:outline-none" 
@@ -51,11 +53,15 @@
 
     <div class="flex items-center py-2">
       <textarea
-          class="w-full p-4 outline-blacktext-black border-b border-black bg-transparent text-black"
+          class="w-full p-4 border-b border-black bg-transparent text-black"
           name="description"
           placeholder="Descripción"
           required
         ></textarea>
+    </div>
+
+    <div class="flex items-center border-b border-black py-4">
+      <input type="file" name="image" class="bg-transparent">
     </div>
 
     <input type="hidden" name="author" value=<%= user.id %>>
@@ -67,7 +73,10 @@
         Agregar
       </button>
 
+
     </form>
+
+
   </div>
   <% } else { %>
     <div class="w-full h-full flex flex-col justify-center items-center">
