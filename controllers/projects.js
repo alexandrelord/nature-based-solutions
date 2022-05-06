@@ -2,9 +2,9 @@ let Project = require("../models/project");
 let nodeGeocoder = require("node-geocoder");
 const Geocoder = require("node-geocoder/lib/geocoder");
 
-const request = require('request');
+const request = require("request");
 // file-system package to us get the base64 encoded image
-const fs = require('fs');
+const fs = require("fs");
 
 module.exports = {
   index,
@@ -63,20 +63,20 @@ function create(req, res) {
   request(options, function (err, response) {
     if (err) return console.log(err);
     let body = JSON.parse(response.body);
-    
+
     let geoCoder = nodeGeocoder({ provider: "openstreetmap" });
     geoCoder
-    .geocode({ city: req.body.city, country: "Colombia", limit: 1 })
-    .then((res) => {
-      req.body.lat = res[0].latitude;
-      req.body.lon = res[0].longitude;
-    })
-    .then(() => {
-      const project = new Project(req.body);
-      // body.data.link points to imgur url
+      .geocode({ city: req.body.city, country: "Colombia", limit: 1 })
+      .then((res) => {
+        req.body.lat = res[0].latitude;
+        req.body.lon = res[0].longitude;
+      })
+      .then(() => {
+        const project = new Project(req.body);
+        // body.data.link points to imgur url
         project.pic = body.data.link;
         project.save(function (err, prj) {
-          console.log(project)
+          console.log(project);
           if (err) return res.render("projects/new");
           fs.unlink(req.file.path, function (err) {
             if (err) return console.log(err);
@@ -88,7 +88,6 @@ function create(req, res) {
       .catch((err) => {
         console.log(err);
       });
-
   });
 }
 // send to edit project page
