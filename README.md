@@ -4,7 +4,7 @@ Welcome to <a href="https://soluciones-naturaleza.herokuapp.com/" target="_blank
 
 A collection of nature-based solutions in Colombia.
 
-<img src="public/images/README_MAIN.png" width="300px">
+<img src="public/images/README_MAIN.png" width="100%">
 
 
 ## Technologies used
