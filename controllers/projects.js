@@ -76,6 +76,7 @@ function create(req, res) {
       // body.data.link points to imgur url
         project.pic = body.data.link;
         project.save(function (err, prj) {
+          console.log(project)
           if (err) return res.render("projects/new");
           fs.unlink(req.file.path, function (err) {
             if (err) return console.log(err);
@@ -125,5 +126,3 @@ function deleteProject(req, res) {
     res.redirect("/projects");
   });
 }
-
-// req.user is the logged-in user - if not logged-in, req.user is null
