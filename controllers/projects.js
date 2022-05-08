@@ -1,7 +1,7 @@
 // require the model to access the DB
 let Project = require("../models/project");
 
-
+// require the geocoder module and set provider
 const NodeGeocoder = require("node-geocoder");
 const geoCoder = NodeGeocoder({ provider: "openstreetmap" });
 // const Geocoder = require("node-geocoder/lib/geocoder");
@@ -36,10 +36,14 @@ function show(req, res) {
 }
 
 // create new project
-function create(req, res) {
+async function create(req, res) {
   
-  let image = base64_encode(req.file.path);
+  let geoResponse = await geoCoder.geocode({ city: req.body.city, country: "Colombia", limit: 1 })
+  req.body.lat = geoResponse[0].latitude;
+  req.body.lon = geoResponse[0].longitude;
 
+  let image = base64_encode(req.file.path);
+  
   const options = {
     method: "POST",
     url: "https://api.imgur.com/3/image",
@@ -51,37 +55,26 @@ function create(req, res) {
       type: "base64",
     },
   };
-
+  
   request(options, function (err, response) {
-    if (err) return console.log(err);
-    let body = JSON.parse(response.body);
-
-    let geoCoder = NodeGeocoder({ provider: "openstreetmap" });
-    geoCoder
-      .geocode({ city: req.body.city, country: "Colombia", limit: 1 })
-      .then((res) => {
-        req.body.lat = res[0].latitude;
-        req.body.lon = res[0].longitude;
-      })
-      .then(() => {
+      if (err) return console.log(err);
+      let body = JSON.parse(response.body);
+      
         const project = new Project(req.body);
         // body.data.link points to imgur url
         project.pic = body.data.link;
+        console.log(project)
+
         project.save(function (err, prj) {
-          console.log(project);
           if (err) return res.render("projects/new");
           fs.unlink(req.file.path, function (err) {
             if (err) return console.log(err);
-            let link = body.data.link;
           });
           res.redirect(`/projects/${prj.id}`);
         });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  });
+  })
 }
+
 // send to edit project page
 function edit(req, res) {
   Project.findById(req.params.id, function (err, project) {
@@ -91,6 +84,7 @@ function edit(req, res) {
 
 async function update(req, res) {
     
+    // send request to geocode API and wait for the response
     let response = await geoCoder.geocode({ city: req.body.city, country: "Colombia", limit: 1 })
     // should handle error before continuing
 
@@ -103,6 +97,7 @@ async function update(req, res) {
           req.params.id,
           req.body,
           function (err, project) {
+            if (err) return res.send(err);
             res.redirect(`/projects/${project.id}`);
           }
     );   
@@ -117,7 +112,6 @@ function deleteProject(req, res) {
     res.redirect("/projects");
   });
 }
-
 
 /*---- helper functions ----*/
 
