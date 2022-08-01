@@ -7,20 +7,16 @@ Welcome to <a href="https://soluciones-naturaleza.herokuapp.com/" target="_blank
 ## Images
 #### Main Page
 <img src="project-images/main_page.png" width=100% />
-<br>
 
 #### Projects Page
 <img src="project-images/projects_page_1.png" width=100% />
 <img src="project-images/projects_page_2.png" width=100% />
-<br>
 
 #### Projects Detail Page
 <img src="project-images/project_detail_page.png" width=100% />
-<br>
 
 #### Add Project Form
 <img src="project-images/add_project.png" width=100% />
-<br>
 
 ## Technologies
 * HTML
