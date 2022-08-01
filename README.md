@@ -30,6 +30,7 @@ Welcome to <a href="https://soluciones-naturaleza.herokuapp.com/" target="_blank
 * MongoDB and Mongoose
 * Passport
 * Google OAuth
+<br>
 APIs:
 * Leaflet
 * Node-Geocoder
